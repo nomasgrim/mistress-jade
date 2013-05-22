@@ -1,0 +1,55 @@
+extends ../templates/main
+
+block header
+  include ../includes/header
+  :markdown
+    ## Jade+Stylus+Grunt = amazing.
+
+block mainContent
+  p
+    button#theme Switch to Light
+  :markdown
+    ### Create Project
+    * have node running, doc to how to setup node environment
+    * (clone shane)[git@github.com:simshanith/simshanith.github.io.git]
+    * cp a few things from shanes project
+      * src
+      * docs
+      * assets
+      * test
+      * Gruntfile.js
+      * package.js
+      * README.md
+    * install grunt
+      <code>npm install -g grunt-cli</code>
+    * install packages
+      <code>npm install</code>
+    * apache config (MAMPP easy)
+    * checkout localhost:8888
+      * shanes SHITs (simple html insomniac turrets shit)
+    ### Discover JADE
+    #### Explore
+    * now lets edit and play in jade
+    * jade files are in the src dir
+      * src/markup
+      * index.jade - src/markup/htdocs
+        * copy paste this markdown over what's in :markdown
+      * refresh localhost
+    * extends
+      * templates
+        * main.jade
+
+
+    ### (Create GitHub Page)[https://github.com/blog/272-github-pages]
+    * (From Command Line)[https://help.github.com/articles/creating-project-pages-manually]
+    * Heroku
+      * http://www.youtube.com/watch?v=P-hFbuWIKAA
+
+
+  #features
+    h3 Features
+    #current
+      +includeMarkdown('src/markup/htdocs/docs/features.markdown')
+
+    #planned
+      +includeMarkdown('src/markup/htdocs/docs/addendum.markdown') 

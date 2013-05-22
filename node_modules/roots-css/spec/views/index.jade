@@ -1,0 +1,85 @@
+!!!
+html
+  head
+    title Roots CSS Testing
+    link(rel='stylesheet', href='test.css')
+  body
+    
+    //- buttons
+    .section
+      .button click me!
+      br
+      .button-color button with custom color
+      br
+      .button-small small
+      br
+      .button-medium medium
+      br
+      .button-large large
+      br
+      .button-custom-size custom size
+      br
+      .button-disabled oh no :(
+      br
+      .simple-button i'm simple!
+      br
+      .simple-color simple alt color
+      br
+      .simple-size simple alt size
+      br
+      .simple-disabled wahhhh
+
+    .section
+      .code the system is down
+      br
+      .pre oh hello
+        | i am code
+        |  look it's indented too!
+
+    //- forms
+    .section
+      input(type='text', placeholder='type here').input
+      br
+      input(type='text', placeholder='search...').input-search
+      br
+      input(type='text', placeholder='oh noes!').input-disabled
+      br
+      input(type='text', value='errarr').input-error
+      br
+      input(type='text', value='warning!').input-warning
+      br
+      input(type='text', value='whoo!').input-success
+      br
+      .field
+        label.label name: 
+        input(type='text', placeholder='your name').input2
+      br
+      .field-error
+        label.label error: 
+        input(type='text', value='faulty value').input2
+      br
+      .field-warning
+        label.label uh oh: 
+        input(type='text', value='hmm...').input2
+      br
+      .field-success
+        label.label you did it: 
+        input(type='text', value='awww yeeee').input2
+
+    //- gradients
+    .section.gradients
+      .gradient
+      br
+      .gradient-multiple-stops
+      br
+      .gradient-mixin
+      br
+      .simple-gradient
+      br
+      .noise-gradient
+      br
+      .simple-noise-gradient
+
+    //- ui
+    .section.ui
+      .bubble

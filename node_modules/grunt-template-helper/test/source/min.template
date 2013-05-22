@@ -1,0 +1,6 @@
+<div class="<%= class %>">
+  <h1><%= message %></h1>
+  <pre>lala
+lol
+  </pre>
+</div>

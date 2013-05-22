@@ -1,0 +1,7 @@
+vendorize(prop, args)
+  argstr = args
+  for browser in vendors
+    if browser == official
+      {prop} argstr
+    else
+      -{browser}-{prop} argstr

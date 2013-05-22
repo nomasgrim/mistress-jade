@@ -1,0 +1,121 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Shane Daniel Github.io</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/assets/styles/base.css">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" href="assets/images/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="assets/images/touch/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, target-densityDpi=320dpi">
+    <script src="/assets/scripts/vendor/modernizr-2.6.2.min.js"></script>
+  </head>
+  <body><a href="https://github.com/simshanith/simshanith.github.io" class="github"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <div id="wrapper">
+      <header id="header"><h1><a href="/">Hello World.</a></h1>
+
+      </header>
+      <section id="mainContent">
+        <p>
+          <button id="theme">Switch to Light </button> <h4>Currently Supported Features</h4>
+<p>This project breaks up source files across the three major divisions of modern Web development:</p>
+<ul>
+<li>Scripts,</li>
+<li>Styles,</li>
+<li>and Markup</li>
+</ul>
+<h5>Scripts</h5>
+<ul>
+<li><a href="https://github.com/gruntjs/grunt-contrib-jshint">Grunt-powered linting</a> with <a href="http://jshint.com/">JShint</a></li>
+<li><a href="https://github.com/gruntjs/grunt-contrib-uglify">Grunt-powered minification</a> with <a href="http://lisperator.net/uglifyjs/">UglifyJS</a></li>
+<li>Grunt managed assets provide vendor, development, and production scripts (yay <a href="https://github.com/gruntjs/grunt-contrib-copy">automated copying</a>)</li>
+<li>Asynchronously loaded in the browser with <a href="http://yepnopejs.com/">yepnope</a></li>
+</ul>
+<h5>Styles</h5>
+<ul>
+<li><a href="http://learnboost.github.io/stylus/">Stylus</a> preprocessing language</li>
+<li>Includes both <a href="http://fluiditycss.com/">Fluidity</a> &amp; <a href="http://roots.cx/axis/">Axis</a> Frameworks</li>
+<li>Design adapted from LESS snippet for <a href="http://ethanschoonover.com/solarized">Solarized</a> syntax highlighting color scheme.</li>
+<li>Responsive Grid setup with variable breakpoints.<ul>
+<li>Currently using <a href="http://fluiditycss.com/#grid">Fluidity&#39;s semantic grid system</a></li>
+<li>Roots / Axis offers <strong>the</strong> <a href="http://semantic.gs/">Semantic Grid System</a></li>
+</ul>
+</li>
+<li>Can use vanilla CSS alongside Stylus</li>
+</ul>
+<h5>Markup</h5>
+<ul>
+<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> inspired template</li>
+<li>Extensive use of <a href="http://jade-lang.com">Jade</a></li>
+<li>Locals module can provide helpers &amp; is tested</li>
+<li>Exposes local helpers as <a href="https://github.com/visionmedia/jade#a14">mixins</a> when possible</li>
+<li>Can inline JavaScript files configured by build type</li>
+<li>Works with <a href="http://daringfireball.net/projects/markdown/">Markdown</a> via <a href="https://github.com/chjj/marked">Marked</a></li>
+<li>Generates syntax-highlighted source code as HTML with <a href="http://pygments.org">Pygments</a>, then templates with Jade</li>
+</ul>
+<p>This included markdown file lives at <a href="/docs/features.html">/docs/features.html</a> and <a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/htdocs/docs/features.markdown">/src/markup/htdocs/docs/features.markdown</a>.</p>
+ 
+        </p>
+      </section>
+      <footer id="footer"><h6>Copyright &copy; 2013 Shane Daniel</h6>
+
+      </footer>
+    </div> <script type="text/javascript">
+////////////////////////////////////////////////////////////////////////////////
+//
+// ## Grunt Build Notes
+// ### Main front-end script loader. Should be included inline in HTML.
+//
+// The Jade helper file, `src/scripts/jade/helpers/jade_locals.js`,
+// exposes a `includeJS` function that returns script injecting JavaScript
+// read from the filesystem, based on the build configuration.
+// 
+// The Jade include, `src/markup/includes/endScripts.jade`,
+// uses the unescaped return value of `includeJs('yepnope')`
+//
+//
+// ## Script Notes
+//  
+// Development convenience script loader.
+//
+// ### jQuery
+//
+// Checks for online status, then attempts to download jQuery via CDN.
+// Then, it checks for jQuery and falls back to a local copy.
+//
+// ### Main Script
+// 
+// Loads site payload. Logs complete message.
+//
+////////////////////////////////////////////////////////////////////////////////
+window.yepnope.complete = yepnope.complete || function (){};
+
+yepnope([{
+    // ### jQuery
+    test: window.navigator && navigator.onLine || !window.navigator,
+    yep: '//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+    complete: function(){
+      yepnope({
+        test: window.jQuery,
+        nope: '/assets/scripts/vendor/jquery.min.js'
+      });
+    }
+  },{ // ## Main Script
+    load: ['/assets/scripts/main.min.js'],
+    complete: function() {
+      window.console && console.log && console.log('All scripts loaded.');
+      yepnope.complete();
+    }
+  }]);
+</script> 
+  </body>
+</html>

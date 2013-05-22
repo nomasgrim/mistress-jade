@@ -1,0 +1,28 @@
+extends ../../../templates/main
+
+block stylesheets
+  link(rel='stylesheet', href='/assets/styles/base.css')
+  link(rel='stylesheet', href='/assets/styles/lib/solarized-pygments.css')
+  style
+    #wrapper {width: 1200px;}
+    .highlight {font-size: 1em;}
+    .highlight>pre {background-color: #fdf6e3;}
+    .dark .highlight {background-color: #e2e2e2;}
+    .dark .highlight>pre {background-color: #073642; color: #93a1a1;}
+
+block headScripts
+  script(src='/assets/scripts/vendor/modernizr-2.6.2.min.js')
+
+block beforeWrapper
+  | 
+
+block header
+  include ../../../includes/header
+  a.github(href="https://github.com/simshanith/simshanith.github.io")
+    img(src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png",
+        alt="Fork me on GitHub")
+
+block mainContent
+  p
+    button#theme Switch to Light
+  include ../../../../../docs/source-code/source-code.html

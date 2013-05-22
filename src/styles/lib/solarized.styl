@@ -1,0 +1,66 @@
+img-path = '../images/'
+
+solarized_base03  =  #002b36
+solarized_base02  =  #073642
+solarized_base01  =  #586e75
+solarized_base00  =  #657b83
+solarized_base0   =  #839496
+solarized_base1   =  #93a1a1
+solarized_base2   =  #eee8d5
+solarized_base3   =  #fdf6e3
+solarized_yellow  =  #b58900
+solarized_orange  =  #cb4b16
+solarized_red     =  #dc322f
+solarized_magenta =  #d33682
+solarized_violet  =  #6c71c4
+solarized_blue    =  #268bd2
+solarized_cyan    =  #2aa198
+solarized_green   =  #859900
+
+
+rebase(rebase03,rebase02,rebase01,rebase00,rebase0,rebase1,rebase2,rebase3) 
+    background-color rebase03
+    color rebase0
+    h1,h2,h3,h4,h5,h6
+    	color rebase1
+    	border-color rebase0
+    a, a:active, a:visited
+    	color rebase1
+
+// dark is default mode, so pair with general html definition
+body, .dark
+	rebase(solarized_base03,solarized_base02,solarized_base01,solarized_base00,solarized_base0,solarized_base1,solarized_base2,solarized_base3)
+
+.light
+	rebase(solarized_base3,solarized_base2,solarized_base1,solarized_base0,solarized_base00,solarized_base01,solarized_base02,solarized_base03)
+
+body, body.light, body.dark
+	h1, h1 a, h1 a:visited
+		color solarized_blue
+		a
+			text-decoration none
+			&:hover, &:focus, &:active
+				text-decoration underline
+			&:active
+				font-style italic
+	h2
+		color solarized_green
+	h3
+		color solarized_orange
+	h4
+		color solarized_cyan
+	h5
+		color solarized_magenta
+	h6
+		color solarized_red
+	
+body.light
+	button
+		button( solarized_blue )
+		&, &:hover
+			color solarized_base3
+body, body.dark
+	button
+		button( solarized_base0 )
+		&, &:hover
+			color solarized_base03

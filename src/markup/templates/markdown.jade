@@ -1,0 +1,12 @@
+extends main
+
+block stylesheets
+  link(rel='stylesheet', href='/assets/styles/base.css')
+
+block headScripts
+  script(src='/assets/scripts/vendor/modernizr-2.6.2.min.js')
+
+block mainContent
+  p
+    button#theme Switch to Light 
+    +includeMarkdown
