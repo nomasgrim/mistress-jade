@@ -31,3 +31,11 @@
 				* notice blocks
 		* copy paste this markdown over what's in :markdown
 	* refresh localhost
+* stylus files are in styles/lib/base.styl
+	* removed solarized, and such
+#### Dress her up with Stylus
+
+### Stylus, the Mary Kay of Styling, it's cake 'd ... ?
+* variables
+* imports
+* shane explain advanced features
