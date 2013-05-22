@@ -6,8 +6,6 @@ block header
     ## Jade+Stylus+Grunt = amazing.
 
 block mainContent
-  p
-    button#theme Switch to Light
   :markdown
     ### Create Project
     * have node running, doc to how to setup node environment
@@ -38,18 +36,12 @@ block mainContent
     * extends
       * templates
         * main.jade
-
-
-    ### (Create GitHub Page)[https://github.com/blog/272-github-pages]
-    * (From Command Line)[https://help.github.com/articles/creating-project-pages-manually]
-    * Heroku
-      * http://www.youtube.com/watch?v=P-hFbuWIKAA
+    * http://www.youtube.com/watch?v=P-hFbuWIKAA
 
 
   #features
     h3 Features
     #current
-      +includeMarkdown('src/markup/htdocs/docs/features.markdown')
+      h2 Away we go
 
     #planned
-      +includeMarkdown('src/markup/htdocs/docs/addendum.markdown') 

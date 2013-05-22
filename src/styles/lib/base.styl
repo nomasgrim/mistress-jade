@@ -7,29 +7,6 @@
 	so alias one as rootsGrid.
 
 */ 
-rootsGrid = grid
-
-/*! Roots Mixins */
-global-reset()
-headers()
-lists()
-//debug()
-img-path = '../images/'
-
-/*! Solarized color theme */
-@import "solarized"
-
-/*! Roots Settings */
-font-stack = monospace
-font-size  = 15
-font-color = solarized_base0
-default-color = solarized_base0
-
-
-
-/*! Roots with colors from solarized */
-base()
-text-selection(lighten(solarized_cyan, 60%))
 
 /*! Fluidity normalize, type, grid, and CSS3 */
 
@@ -44,7 +21,7 @@ text-selection(lighten(solarized_cyan, 60%))
 
 
 /*! Base styles for Responsive Setup */
-
+red = #ff0000
 pageMinWidth = 480px
 responsiveBreakpoint = 820px
 responsiveMedia = 'screen and (max-width:'+responsiveBreakpoint+')'
@@ -59,6 +36,8 @@ body
 	#features
 		#current, #planned
 			grid-space(50%)
+		#current
+			background red
 
 #footer
 	text-align center
@@ -74,7 +53,6 @@ body #mainContent
 		text-decoration none
 	a:active
 		text-shadow 0px 0px 10px #fff
-
 
 @media responsiveMedia
 	body
