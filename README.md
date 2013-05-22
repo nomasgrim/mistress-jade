@@ -1,5 +1,6 @@
 ### Create Project
 * assuming prior node environment setup
+* grunt knowledge (good project to fork and checkout vml-minification https://github.com/ruzz311/vml-minification)
 * <a href="git@github.com:nomasgrim/mistress-jade.git">clone this project</a>
 * cp a few things from this project
 	* src
