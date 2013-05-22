@@ -1,6 +1,6 @@
 ### Create Project
 * assuming prior node environment setup
-* (clone this project)[git@github.com:nomasgrim/mistress-jade.git]
+* <a href="git@github.com:nomasgrim/mistress-jade.git">clone this project</a>
 * cp a few things from this project
 	* src
 	* docs
