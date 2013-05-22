@@ -1,7 +1,7 @@
 ### Create Project
 * assuming prior node environment setup
-* (clone shane)[git@github.com:simshanith/simshanith.github.io.git]
-* cp a few things from shanes project
+* (clone this project)[git@github.com:nomasgrim/mistress-jade.git]
+* cp a few things from this project
 	* src
 	* docs
 	* assets
@@ -13,9 +13,10 @@
 	<code>npm install -g grunt-cli</code>
 * install packages
 	<code>npm install</code>
-* apache config (MAMPP easy)
-* checkout localhost:8888
-	* shanes SHITs (simple html insomniac turrets shit)
+* start node server
+	<code>grunt connect:site:keepalive</code>
+* checkout localhost:8000
+	* Jade SHITs (simple html insomniac turrets shit)
 
 ### Discover JADE
 #### Explore
@@ -39,3 +40,4 @@
 * variables
 * imports
 * shane explain advanced features
+	* http://www.youtube.com/watch?v=P-hFbuWIKAA

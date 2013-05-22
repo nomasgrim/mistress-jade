@@ -7,13 +7,13 @@ module.exports = function(grunt) {
       minifiers = ['uglify'],
       linters   = ['jshint'],
       testing   = ['jasmine'],
-      utilities = ['concat', 'copy', 'clean', 'watch', 'connect'];
+      utilities = ['copy', 'clean', 'watch', 'connect'];
 
   var contribLibs = _.union(languages, minifiers, linters, testing, utilities);
   function prefixLibs(name) {return 'grunt-contrib-' + name;}
   contribLibs = _.map(contribLibs, prefixLibs);
 
-  var thirdPartyLibs = ['grunt-template-helper', 'grunt-bg-shell','grunt-cafe-mocha'];
+  var thirdPartyLibs = ['grunt-template-helper', 'grunt-cafe-mocha'];
   var npmTasks = _.union(contribLibs, thirdPartyLibs);
 
   _.each(npmTasks, grunt.loadNpmTasks);
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
   // load stylus plugins
   var stylusPlugins = [require('fluidity'), require('roots-css')];
 
-  var port = process.env.PORT || 0;
+  var port = process.env.PORT || 8000;
 
   grunt.initConfig({
     // Read build info from --dev or --build="build" command line args.
@@ -32,36 +32,11 @@ module.exports = function(grunt) {
     // Allow specification from command line of which jade and/or stylus file(s) to compile.
     jadeFilter: _.isString(grunt.option('jadeFilter')) && grunt.option('jadeFilter') || undefined,
     stylusFilter: _.isString(grunt.option('stylusFilter')) && grunt.option('stylusFilter') || undefined,
-    pygments: {
-      src: 'src/markup/htdocs/index.jade',
-      dest: 'docs/highlighted.html'
-    },
     markdownPath: '',
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       name: '<%= pkg.name %>',
       banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= template.today("m/d/yyyy") %> */'
-    },
-    concat: {
-      pygments: {
-        src: ['build/source-code/**/*.html'],
-        dest: 'docs/source-code/source-code.html',
-        options: {
-          process: function(src, filepath){
-            var sourcePath = filepath.slice(0,-5).replace('build/source-code/', 'src/');
-
-            //if(_.contains(filepath, 'docs/'))
-            //    sourcePath = sourcePath.replace('src/','docs/');
-
-            var repoPath = 'https://github.com/simshanith/simshanith.github.io/tree/master/';
-            //console.log('repo path: '+repoPath);
-            var gitHubLink = ['<a href="', repoPath, sourcePath,'">',sourcePath,'</a>'].join('');
-            //console.log('gh link: '+gitHubLink);
-            var fileHeader = ['<h3><pre>', gitHubLink, '</pre></h3>'].join('');
-            return fileHeader+src;
-          }
-        }
-      }
     },
     coffee: {
       options: {
@@ -149,14 +124,6 @@ module.exports = function(grunt) {
       wrapMarkdown: {
         src: 'src/markup/templates/markdown.jade',
         dest: '<%= markdownPath && markdownPath.replace( ".markdown" , ".html" ).replace( "src/markup/htdocs/" , "" ) %>'
-      }
-    },
-    bgShell: {
-      _defaults: {
-        bg: false
-      },
-      pygmentize: {
-        cmd: 'pygmentize -f html -o <%= pygments.dest %> <%= pygments.src %>'
       }
     },
     template: {
@@ -268,7 +235,6 @@ module.exports = function(grunt) {
           return grunt.file.exists(coffeepath);
         }
       },
-      pygments: ['build/source-code/'],
       genPygments: ['docs/source-code/'],
       markdown: ['docs/**/*.marked.html'],
       genMarkdown: {
@@ -369,7 +335,7 @@ module.exports = function(grunt) {
       grunt.log.error('Development build; including unminified scripts.');
     }
 
-    chainTasks(['pygmentize','test:build','markdown','jade:compile', 'template:prettyJade', 'copy:markup', 'clean:markdown']);
+    chainTasks(['test:build','markdown','jade:compile', 'template:prettyJade', 'copy:markup', 'clean:markdown']);
 
   });
 
@@ -447,34 +413,6 @@ module.exports = function(grunt) {
     var pair = querystring.parse(pairStr);
     //grunt.log.writeln(pair.src);
     grunt.config('markdownPath', pair.src);
-  });
-
-  grunt.registerTask('_pyg', 'internal grunt config', function(pairStr){
-    var pair = querystring.parse(pairStr);
-    // Create file & intermediate directories.
-    grunt.file.write(pair.dest, 'Running pygments...');
-    grunt.config('pygments', pair);
-  });
-
-  grunt.registerTask('pygmentize', 'Generate HTML of syntax-highlighted source code.', function() {
-
-    var expandOpts  = {cwd: 'src/', flatten: false, rename: pygRename},
-        sourceFiles = ['{markup,scripts}/**/*.{jade,js}', '!**/vendor/*', '!markup/**/*.js'],
-        targetDir   = 'build/source-code/',
-        fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
-
-    function pygRename(dest, matchedSrcPath, options) {
-      return dest + matchedSrcPath + '.html';
-    }
-
-    grunt.log.subhead('Found '+fileMatches.length+' source files to highlight.');
-
-    _.each(fileMatches, function(pair){
-      var pairStr = querystring.stringify(pair);
-      grunt.task.run(['_pyg:'+pairStr,'bgShell:pygmentize']);
-    });
-
-    grunt.task.run(['concat:pygments', 'clean:pygments']);
   });
 
   grunt.registerTask('heroku', 'Confirm grunt cli works.', function(){
