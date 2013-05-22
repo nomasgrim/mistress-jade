@@ -8,39 +8,49 @@ block header
 block mainContent
   :markdown
     ### Create Project
-    * have node running, doc to how to setup node environment
-    * (clone shane)[git@github.com:simshanith/simshanith.github.io.git]
-    * cp a few things from shanes project
-      * src
-      * docs
-      * assets
-      * test
-      * Gruntfile.js
-      * package.js
-      * README.md
-    * install grunt
-      <code>npm install -g grunt-cli</code>
-    * install packages
-      <code>npm install</code>
-    * apache config (MAMPP easy)
-    * checkout localhost:8888
-      * shanes SHITs (simple html insomniac turrets shit)
-    ### Discover JADE
-    #### Explore
-    * now lets edit and play in jade
-    * jade files are in the src dir
-      * src/markup
-      * index.jade - src/markup/htdocs
-        * copy paste this markdown over what's in :markdown
-      * refresh localhost
-    * extends
-      * templates
-        * main.jade
-    * http://www.youtube.com/watch?v=P-hFbuWIKAA
+      * assuming prior node environment setup
+      * (clone shane)[git@github.com:simshanith/simshanith.github.io.git]
+      * cp a few things from shanes project
+        * src
+        * docs
+        * assets
+        * test
+        * Gruntfile.js
+        * package.js
+        * README.md
+      * install grunt
+        <code>npm install -g grunt-cli</code>
+      * install packages
+        <code>npm install</code>
+      * apache config (MAMPP easy)
+      * checkout localhost:8888
+        * shanes SHITs (simple html insomniac turrets shit)
 
+    ### Discover JADE
+      #### Explore
+        * now lets edit and play in jade
+        * jade files are in the src dir
+          * src/markup
+          * index.jade - src/markup/htdocs
+            * extends
+              * templates
+                * main.jade
+                * notice include mixins, advanced get back to it and have shane exlain better
+                * edit title
+                * notice blocks
+            * copy paste this markdown over what's in :markdown
+          * refresh localhost
+        * stylus files are in styles/lib/base.styl
+          * removed solarized, and such
+      #### Dress her up with Stylus
+        * this and that
+    ### Stylus, the Mary Kay of Styling, it's cake 'd ... ?
+    * variables
+    * imports
+    * shane explain advanced features
 
   #features
-    h3 Features
+    h3 Random
     #current
       h2 Away we go
 
